@@ -37,9 +37,9 @@ function Listing() {
         <Pagination/>
             <div className="container">
                 <div   className="row">
-                    { movies.map(movie => (
-                        <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                                <MovieCard id={movie.id} title={movie.title} score={movie.score} count={movie.count} image={movie.image}/>
+                    { movies.map((movie, i) => (
+                        <div className="col-sm-6 col-lg-4 col-xl-3 mb-3" key={i}>
+                                <MovieCard id={movie.id} title={movie.title} score={movie.score} count={movie.count} image={movie.image}  />
                         </div>
                     ))} 
                 </div>

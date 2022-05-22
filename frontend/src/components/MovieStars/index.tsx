@@ -3,17 +3,40 @@ import{ ReactComponent as StarHalf} from 'assets/img/star-half.svg';
 import{ ReactComponent as StarEmpty} from 'assets/img/star-empty.svg';
 import './styles.css';
 
-function MovieStars() {
-    return (
-        
+function MovieStars(movie: any) {
+
+var score = movie.score;
+
+function getFills(score:  number) {
+
+    const fills = [0, 0, 0, 0, 0];
+  
+    const integerPart = Math.floor(score);
+  
+    for (let i = 0; i < integerPart; i++) {
+      fills[i] = 1;
+    }
+  
+    const diff = score - integerPart;
+    if (diff > 0) {
+      fills[integerPart] = 0.5;
+    }
+  
+    return fills;
+  }  
+
+    const fills = getFills(score);
+    
+    return (        
+         
     <div className="dsmovie-stars-container">
-        <StarFull />
-        <StarFull />
-        <StarFull />
-        <StarFull />
-        <StarHalf />
-        <StarEmpty />
+        {fills.map((fill, i) => ( 
+
+            fill === 1 ?<StarFull  key={i}/> : fill === 0.5 ? <StarHalf  key={i}/> : <StarEmpty  key={i}/>
+           
+          ))}
     </div>
+    
     );
 }
 

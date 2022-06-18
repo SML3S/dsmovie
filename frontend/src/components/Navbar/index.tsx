@@ -1,7 +1,7 @@
 import {ReactComponent as GithubIcon} from 'assets/img/github.svg'
 import './styles.css';
 
-function Navbar() {
+export function Navbar() {
     return (
      <header>
        <nav className="container">
@@ -19,4 +19,3 @@ function Navbar() {
     );
   }
 
-  export default Navbar;
